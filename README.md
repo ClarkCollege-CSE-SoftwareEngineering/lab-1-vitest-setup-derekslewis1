@@ -534,6 +534,10 @@ describe('content service', () => {
 
 3. What additional confidence do the integration tests give you that unit tests alone wouldn't provide?
 
+** Reflection Answers:**
+
+3. The integration tests allow us to see if the components are working together correctly. Our unit tests can verify that they work on their own, but we can only see them operating together when we run integration tests. 
+
 ---
 
 ## Part 5: Deliverables

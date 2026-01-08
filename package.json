@@ -1,0 +1,27 @@
+{
+  "name": "vitest-lab",
+  "version": "1.0.0",
+  "description": "[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/TaS1d2WK) # Lab 1: Vitest Setup from Scratch **Week 1 | Testing I**",
+  "main": "index.js",
+  "scripts": {
+    "test": "vitest",
+    "test:coverage": "npm test -- --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ClarkCollege-CSE-SoftwareEngineering/lab-1-vitest-setup-derekslewis1.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ClarkCollege-CSE-SoftwareEngineering/lab-1-vitest-setup-derekslewis1/issues"
+  },
+  "homepage": "https://github.com/ClarkCollege-CSE-SoftwareEngineering/lab-1-vitest-setup-derekslewis1#readme",
+  "devDependencies": {
+    "@vitest/coverage-v8": "^4.0.16",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.16"
+  }
+}
