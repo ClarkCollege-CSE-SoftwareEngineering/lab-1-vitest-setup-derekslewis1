@@ -23,7 +23,10 @@ describe('string utilities', () => {
       expect(slugify('hello world')).toBe('hello-world');
     });
 
-    // TODO: Add your own test case
+    // New test case for numbers / mixed characters
+    it('handles numbers and mixed characters', () => {
+	expect(slugify('Hello World 123')).toBe('hello-world-123');
+    });
   });
 
   describe('truncate', () => {
@@ -43,7 +46,10 @@ describe('string utilities', () => {
       expect(truncate('Hello', 5)).toBe('Hello');
     });
 
-    // TODO: Add your own test case
+    // New truncate test for 3 letters
+    it('handles small lengths', () => {
+	expect(truncate('Hello World', 3)).toBe('...');
+    });
   });
 
   describe('capitalize', () => {
@@ -59,7 +65,10 @@ describe('string utilities', () => {
       expect(capitalize('')).toBe('');
     });
 
-    // TODO: Add your own test case
+    // New test for capitalization with mixed capitalization
+    it('Handles a mixed range of capitalization', () => {
+      expect(capitalize('HeLlO')).toBe('Hello');
+    });
   });
 
   describe('countWords', () => {
@@ -79,6 +88,9 @@ describe('string utilities', () => {
       expect(countWords('   ')).toBe(0);
     });
 
-    // TODO: Add your own test case
+    // new test for sentences with commas
+    it('counts words in sentences with commas', () => {
+      expect(countWords('Hello there, Derek!')).toBe(3);
+    });
   });
 });

@@ -1,5 +1,5 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/TaS1d2WK)
-# Lab 1: Vitest Setup from Scratch
+# Lab 1: Vitest Setup from Scratch - Derek Lewis
 
 ## Week 1 | Testing I
 
@@ -266,6 +266,8 @@ You should see all tests passing. Notice the structure:
 
 **🤔 Reflection Question:** Look at the `add` tests. The first test uses explicit _Arrange-Act-Assert_ comments. Why might this pattern be useful, especially for complex tests?
 
+Following the laid out pattern makes it extremely easy to read as a developer. If one were to fail, you know exactly where the problem is and which section to go to. Another developer could help with your codebase and easily jump right in.
+
 ### Step 2.4: See a Test Fail
 
 Temporarily break the `add` function to see what a failing test looks like:
@@ -355,8 +357,12 @@ describe("string utilities", () => {
     it("handles already lowercase strings", () => {
       expect(slugify("hello world")).toBe("hello-world");
     });
-
-    // TODO: Add your own test case
+   
+    // added new test case for mixed numbers / characters
+    it("handles numbers and mixed characters", () => {
+      expect(slugify("hello world 123")).toBe("hello-world-123");
+    });
+      
   });
 
   describe("truncate", () => {
@@ -376,7 +382,10 @@ describe("string utilities", () => {
       expect(truncate("Hello", 5)).toBe("Hello");
     });
 
-    // TODO: Add your own test case
+    // New truncate test for 3 letters
+    it('handles small lengths', () => {
+        expect(truncate('Hello World', 3)).toBe('...');
+    });
   });
 
   describe("capitalize", () => {
@@ -392,7 +401,10 @@ describe("string utilities", () => {
       expect(capitalize("")).toBe("");
     });
 
-    // TODO: Add your own test case
+    // New test for capitalization with mixed capitalization
+    it('Handles a mixed range of capitalization', () => {
+      expect(capitalize('HeLlO')).toBe('Hello');
+    });
   });
 
   describe("countWords", () => {
@@ -412,7 +424,10 @@ describe("string utilities", () => {
       expect(countWords("   ")).toBe(0);
     });
 
-    // TODO: Add your own test case
+    // new test for sentences with commas
+    it('counts words in sentences with commas', () => {
+      expect(countWords('Hello there, Derek!')).toBe(3);
+    });
   });
 });
 ```
@@ -577,9 +592,17 @@ describe("content service", () => {
 
 3. What additional confidence do the integration tests give you that unit tests alone wouldn't provide?
 
-** Reflection Answers:**
+** 🤔 Reflection Answers:**
+ 
+1. The 'content.test.ts' file contains integration tests, while the string.test.ts file contains unit tests. We can tell the difference by looking at what the files are actually testing. 'strings.test.ts' tests each string function in isolation. In 'content.test.ts' the test functions like processArticle combine multiple helpers together, testing that different pieces work as a group. 
+
+2. Both 'content.test.ts' and 'strings.test.ts' would probably have failing tests. 'strings.test.ts' tests slugify directly, which would cause multiple failures. Also, in 'content.test.ts' we expect the slug results, so if they are failing it would cause failures in that file as well. 
 
 3. The integration tests allow us to see if the components are working together correctly. Our unit tests can verify that they work on their own, but we can only see them operating together when we run integration tests. 
+
+🤔 Testing Trophy Connection: 
+
+While doing this lab I was able to better understand the Testing Trophy concept from the readings because I actually got to work with different types of tests myself. Writing multiple unit tests helped me get a clearer idea of what I want my tests to accomplish and how they validate small pieces of logic. The readings mentioned that writing tests increases confidence in your code, which I definitely agree with after seeing how quickly my issues were caught. I also learned the difference between unit tests and integration tests and how they work together to make sure both individual functions and larger features behave as I expected. 
 
 ---
 
